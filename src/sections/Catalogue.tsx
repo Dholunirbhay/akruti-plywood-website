@@ -30,9 +30,13 @@ export default function Catalogue() {
               Get access to our complete product catalogue featuring detailed specifications, finishes, and application guides.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-              <button className="inline-flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 bg-[#D7B899] hover:bg-[#C9A87E] text-[#2D2D2D] font-semibold rounded-lg transition-all hover:shadow-lg text-sm sm:text-base">
+              <a
+                href="/catalogue.pdf"
+                download
+                   className="inline-flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 bg-[#D7B899] hover:bg-[#C9A87E] text-[#2D2D2D] font-semibold rounded-lg transition-all hover:shadow-lg text-sm sm:text-base"
+              >
                 <Download size={16} className="sm:w-[18px] sm:h-[18px]" /> Download Catalogue
-              </button>
+              </a>
               <button className="inline-flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 border-2 border-white/30 text-white hover:border-white font-semibold rounded-lg transition-all text-sm sm:text-base">
                 <FileText size={16} className="sm:w-[18px] sm:h-[18px]" /> Request Price List
               </button>

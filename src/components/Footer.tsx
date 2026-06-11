@@ -1,6 +1,8 @@
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { companyInfo } from '../data/companyInfo';
 import { scrollTo } from '../utils/scroll';
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const quickLinks = ['Home', 'About', 'Products', 'Gallery', 'Contact'];
 const productLinks = [
@@ -13,6 +15,40 @@ const productLinks = [
 ];
 
 export default function Footer() {
+   const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      await emailjs.send(
+        'service_1iwc7hz',
+        'template_f3b74xd',
+        {
+          name: 'Newsletter Subscriber',
+          mobile: '-',
+          email: newsletterEmail,
+          city: '-',
+          requirement: 'Newsletter Subscription',
+          message: `Newsletter: ${newsletterEmail}`,
+        },
+        'ZWFQxxKe3ql6UNPG2'
+      );
+
+      setSubscribed(true);
+      setNewsletterEmail('');
+
+      setTimeout(() => {
+        setSubscribed(false);
+      }, 3000);
+
+    } catch (error) {
+      console.error(error);
+      alert('Subscription failed');
+    }
+  };
+
   return (
     <footer className="bg-[#2D2D2D] dark:bg-neutral-950 text-neutral-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -86,10 +122,13 @@ export default function Footer() {
             </div>
             <div className="mt-6">
               <h5 className="text-sm font-medium text-neutral-300 mb-2">Newsletter</h5>
-              <form className="flex" onSubmit={(e) => e.preventDefault()}>
+              <form className="flex" onSubmit={handleNewsletterSubmit}>
                 <input
                   type="email"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
                   placeholder="Your email"
+                  required
                   className="flex-1 px-3 py-2 bg-neutral-800 border border-neutral-700 rounded-l-lg text-sm text-neutral-200 placeholder-neutral-500 focus:outline-none focus:border-[#D7B899]"
                 />
                 <button
@@ -99,6 +138,11 @@ export default function Footer() {
                   <Send size={16} />
                 </button>
               </form>
+              {subscribed && (
+                <p className="text-green-400 text-xs mt-2">
+                  Thanks! You are subscribed 🎉
+                </p>
+              )}
             </div>
           </div>
         </div>

@@ -40,12 +40,19 @@ export default function Contact() {
             </div>
 
             {/* Map Placeholder */}
-            <div className="bg-neutral-200 dark:bg-neutral-700 rounded-xl h-48 flex items-center justify-center">
-              <div className="text-center text-neutral-500 dark:text-neutral-400">
-                <MapPin size={32} className="mx-auto mb-2 opacity-50" />
-                <p className="text-sm">Google Maps Integration</p>
-              </div>
-            </div>
+            <div className="rounded-xl overflow-hidden h-64 lg:h-80">
+  
+              <iframe
+  src="https://www.google.com/maps?q=Akruti%20Plywood%20India&output=embed"
+  width="100%"
+  height="320"
+  style={{ border: 0 }}
+  loading="lazy"
+  allowFullScreen
+></iframe>
+
+
+          </div>
           </motion.div>
 
           {/* Right - Form */}

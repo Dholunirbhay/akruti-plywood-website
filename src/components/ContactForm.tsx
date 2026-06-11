@@ -1,16 +1,46 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { Send } from 'lucide-react';
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: '', mobile: '', email: '', city: '', requirement: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    await emailjs.send(
+      'service_1iwc7hz',
+      'template_f3b74xd',
+      {
+        name: form.name,
+        mobile: form.mobile,
+        email: form.email,
+        city: form.city,
+        requirement: form.requirement,
+        message: form.message,
+      },
+      'ZWFQxxKe3ql6UNPG2'
+    );
+
     setSubmitted(true);
+
+    setForm({
+      name: '',
+      mobile: '',
+      email: '',
+      city: '',
+      requirement: '',
+      message: '',
+    });
+
     setTimeout(() => setSubmitted(false), 4000);
-    setForm({ name: '', mobile: '', email: '', city: '', requirement: '', message: '' });
-  };
+  } catch (error) {
+    console.error('EmailJS Error:', error);
+    alert('Failed to send message. Please try again.');
+  }
+};
 
   const handleChange = (field: string, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));

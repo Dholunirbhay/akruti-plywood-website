@@ -1,11 +1,11 @@
 export const companyInfo = {
   name: 'Akruti Plywood',
   tagline: 'Strong Foundations. Premium Quality. Trusted Performance.',
-  phone: '+91 98765 43210',
+  phone: '+91 90166 21436',
   email: 'info@akrutiplywood.com',
-  address: 'Industrial Area, Sector 12, New Delhi, India - 110020',
+  address: 'Ajapar Kutch, India',
   workingHours: 'Mon - Sat: 9:00 AM - 7:00 PM',
-  whatsapp: '919876543210',
+  whatsapp: '919016621436',
   social: {
     facebook: '#',
     instagram: '#',

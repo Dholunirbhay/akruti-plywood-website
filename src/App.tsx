@@ -50,7 +50,7 @@ function ScrollToTop() {
 function WhatsAppButton() {
   return (
     <motion.a
-      href={`https://wa.me/${companyInfo.whatsapp}`}
+      href={`https://wa.me/${companyInfo.whatsapp}?text=Hello%20Akruti%20Plywood,%0A%0AI%20am%20interested%20in%20your%20plywood%20products%20and%20would%20like%20a%20quotation.%0A%0APlease%20contact%20me.%0A%0AThank%20you.`}
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0 }}
