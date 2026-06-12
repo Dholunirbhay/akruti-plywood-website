@@ -116,7 +116,7 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
                 </button>
               ))}
               <button
-                onClick={() => handleNav('Contact')}
+                onClick={() => handleNav('contact')}
                 className="block w-full mt-2 px-4 py-3 bg-[#4E342E] hover:bg-[#3E2723] text-white rounded-lg text-center font-semibold transition-all"
               >
                 Get Quote
