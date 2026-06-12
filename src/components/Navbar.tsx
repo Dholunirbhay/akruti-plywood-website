@@ -22,8 +22,11 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
   }, []);
 
   const handleNav = (link: string) => {
-    scrollTo(link.toLowerCase());
     setMobileOpen(false);
+    setTimeout(()=>{
+
+      scrollTo(link.toLowerCase());
+    },300); // Delay to allow menu to close before scrolling
   };
 
   return (
@@ -61,7 +64,7 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
               </button>
             ))}
             <button
-              onClick={() => handleNav('Contact')}
+              onClick={() => handleNav('contact')}
               className="ml-2 px-5 py-2 bg-[#4E342E] hover:bg-[#3E2723] text-white rounded-lg text-sm font-semibold transition-all hover:shadow-lg"
             >
               Get Quote
